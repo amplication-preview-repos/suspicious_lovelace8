@@ -2,6 +2,8 @@ import { Module } from "@nestjs/common";
 import { UserModule } from "./user/user.module";
 import { EmailMetadataModule } from "./emailMetadata/emailMetadata.module";
 import { OAuthTokenModule } from "./oAuthToken/oAuthToken.module";
+import { AnalyticsModuleModule } from "./analyticsmodule/analyticsmodule.module";
+import { GmailModuleModule } from "./gmailmodule/gmailmodule.module";
 import { HealthModule } from "./health/health.module";
 import { PrismaModule } from "./prisma/prisma.module";
 import { SecretsManagerModule } from "./providers/secrets/secretsManager.module";
@@ -22,6 +24,8 @@ import { AuthModule } from "./auth/auth.module";
     UserModule,
     EmailMetadataModule,
     OAuthTokenModule,
+    AnalyticsModuleModule,
+    GmailModuleModule,
     HealthModule,
     PrismaModule,
     SecretsManagerModule,
