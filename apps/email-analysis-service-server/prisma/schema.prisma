@@ -1,0 +1,40 @@
+datasource db {
+  provider = "mongodb"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  createdAt DateTime @default(now())
+  email     String?  @unique
+  firstName String?
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  lastName  String?
+  password  String
+  roles     Json
+  updatedAt DateTime @updatedAt
+  username  String   @unique
+}
+
+model EmailMetadata {
+  createdAt DateTime  @default(now())
+  date      DateTime?
+  id        String    @id @default(auto()) @map("_id") @db.ObjectId
+  recipient String?
+  sender    String?
+  subject   String?
+  threadId  String?
+  updatedAt DateTime  @updatedAt
+}
+
+model OAuthToken {
+  accessToken  String?
+  createdAt    DateTime @default(now())
+  expiresIn    Int?
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  refreshToken String?
+  updatedAt    DateTime @updatedAt
+}
